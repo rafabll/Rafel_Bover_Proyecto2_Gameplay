@@ -15,12 +15,14 @@ public class PlayerControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //posición inicial del player
         transform.position = initialPos;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Movimiento del player
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * speed * horizontalInput);
 
@@ -33,6 +35,7 @@ public class PlayerControler : MonoBehaviour
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
 
+        //Mecanica de disparo
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
